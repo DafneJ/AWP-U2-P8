@@ -79,7 +79,7 @@ self.addEventListener('fetch', (event) => {
         });
 
     }).catch((err) => {
-        if (event.request.headers.get('accept').includes('image')) {
+        if (event.request.headers.get('accept').includes('image/*')) {
           
            return caches.match('images/icons/android-launchericon-96-96.png')
         }
