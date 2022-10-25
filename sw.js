@@ -4,11 +4,6 @@ const INMUTABLE_CACHE_NAME = 'inmutable-cache-v1.1';
 const DYNAMIC_CACHE_NAME = 'dynamic-cache-v1.1';
 const ROOT_PATH = "/AWP-U2-P8";
 
-const DEFAULT_RESPONSE = {
-    '/html': `${ROOT_PATH}/pages/offline.html`,
-   // 'image/': `${ROOT_PATH}/images/image-not-found.svg`
-};
-
 const cleanCache = (cacheName, limitItems) => {
     caches.open(cacheName).then((cache) => {
         return cache.keys().then((keys) => {
@@ -31,7 +26,7 @@ self.addEventListener('install', (event) => {
             `${ROOT_PATH}/images/icons/android-launchericon-192-192.png`,
             `${ROOT_PATH}/images/icons/android-launchericon-512-512.png`,
             `${ROOT_PATH}/manifest.json`,
-            DEFAULT_RESPONSE['/html'],
+            `${ROOT_PATH}/pages/offline.html`,
         
         ]);
     });
